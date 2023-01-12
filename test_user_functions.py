@@ -14,10 +14,10 @@ def test_email_with_user_input_correct(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('petra@adaltas.com'))
     assert get_email_from_input() == 'petra@adaltas.com'
 
-def test_email_with_user_name_space(monkeypatch):
+def test__user_name_with_space(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('petra adaltas'))
-    assert get_email_from_input() is None
+    assert get_user_name_from_input() is None
 
-def test_email_with_user_name_correct(monkeypatch):
+def test__user_name_with_correct(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('petraadaltas'))
-    assert get_email_from_input() == 'petraadaltas'
+    assert get_user_name_from_input() == 'petraadaltas'
