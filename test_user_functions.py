@@ -40,4 +40,4 @@ def test__password_less_than_eight(monkeypatch):
 
 def test__password_correct(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('Abcd!96&'))
-    assert get_password_from_input() == 'Abcd!96&''
+    assert get_password_from_input() == 'Abcd!96&'
