@@ -24,20 +24,20 @@ def test__user_name_with_correct(monkeypatch):
 
 def test__password_without_number(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('Abcd,;:!'))
-    assert get_user_name_from_input() is None
+    assert get_password_from_input() is None
 
 def test__password_without_special_character(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('Abcd1234'))
-    assert get_user_name_from_input() is None
+    assert get_password_from_input() is None
 
 def test__password_without_letter(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('1234!&:;'))
-    assert get_user_name_from_input() is None
+    assert get_password_from_input() is None
 
 def test__password_less_than_eight(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('a1&'))
-    assert get_user_name_from_input() is None
+    assert get_password_from_input() is None
 
 def test__password_correct(monkeypatch):
     monkeypatch.setattr('sys.stdin', io.StringIO('Abcd!96&'))
-    assert get_user_name_from_input() == 'petraadaltas'
+    assert get_password_from_input() == 'Abcd!96&''
